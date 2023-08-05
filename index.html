@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h1>Guess the number!</h1>
+	<script>
+        // Function to generate a random number between 1 and 10
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 10) + 1;
+        }
+
+        // Function to prompt the user for a guess
+        function promptGuess() {
+            return parseInt(prompt("Guess a number between 1 and 10"));
+        }
+
+        // Function to check if the guess is correct and give feedback
+        function checkGuess(target, guess) {
+            if (target === guess) {
+                alert("Got it!");
+                return true;
+            } else {
+                if (target > guess) {
+                    alert("Too low! Guess higher.");
+                } else {
+                    alert("Too high! Guess lower.");
+                }
+                return false;
+            }
+        }
+
+        let num = generateRandomNumber();
+        let numGuesses = 0;
+
+        while (true) {
+            let guess = promptGuess();
+            numGuesses++;
+
+            if (checkGuess(num, guess)) {
+                break;
+            }
+        }
+
+        alert("You guessed it in " + numGuesses + " attempts!");
+	</script>
+</body>
+</html>
